@@ -1,0 +1,369 @@
+/* Global */
+body {
+    margin: 0;
+    font-family: ' UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0B1014;
+    color: #d1d1d1;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  /* Header */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    background-color: #0B1014;
+    color: #ffffff;
+    border-bottom: 0px solid #2a2f32;
+  }
+  
+  .header .title {
+    font-size: 200%;
+    font-weight: bold;
+  }
+  
+  .header .right-icons i {
+    margin-left: 16px;
+    font-size: 200%;
+    cursor: pointer;
+    color: #ffffff;
+  }
+  
+  /* Search Bar */
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #0B1014;
+    padding: 3px 10px;
+    border-bottom: 0px solid #2a2f32;
+  }
+  
+  .search-box {
+    display: flex;
+    align-items: center;
+    background-color: #23282C;
+    padding: 14px 20px;
+    border-radius: 25px;
+    flex-grow: 1;
+  }
+  
+  .search-box i {
+    color: #8D9598;
+    margin-right: 8px;
+  }
+  
+  .search-box input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    color: #ffffff;
+    font-size: 14px;
+    border-radius: 25px;
+  }
+  
+  .archive-icon {
+    margin-left: 16px;
+    color: #8D9598;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .archive-icon i {
+    margin-right: 8px;
+  }
+  
+  /* tab */
+  .tabs {
+    display: flex;
+    justify-content: flex-start; /* Mengatur tab ke kiri */
+    align-items: center;
+    padding: 0; /* Menghilangkan padding kontainer */
+    margin: 20px auto;
+    margin-left: 10px; /* Memberikan margin kiri untuk menggeser sedikit ke kiri */
+    width: auto; /* Agar lebar mengikuti isi tab */
+    background-color: transparent;  /* Menghapus background kontainer */
+  }
+  
+  /* Sembunyikan radio input */
+  input[type="radio"] {
+    display: none;
+  }
+  
+  /* Gaya dasar tab */
+  .tab {
+    font-size: 14px; /* Ukuran font kecil */
+    font-weight: 400;
+    cursor: pointer;
+    margin-right: 6px; /* Mengurangi jarak antar elemen */
+    padding: 6px 12px;  /* Mengurangi padding agar tab lebih rapat */
+    border-radius: 20px; 
+    background-color: rgba(35, 40, 44, 0.7); 
+    text-align: center;
+    color: #00FFFF; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap; 
+    flex-shrink: 0; 
+  }
+  
+  .tab:hover {
+    background-color: rgba(42, 47, 51, 0.9); 
+  }
+  
+  /* Tab yang dipilih */
+  input[type="radio"]:checked + label {
+    background-color: #103629; /* Background hijau lebih transparan */
+    color: #00FFFF; /* Warna teks hijau terang */
+  }
+  
+  /* Tab tambah (+) dengan ikon seperti WhatsApp */
+  .add {
+    font-size: 0;  /* Menyembunyikan teks */
+    color: #8D9598;
+    padding: 14px 0.5px;  /* Padding lebih besar untuk memperpanjang tab */
+    border-radius: 20px;  /* Sudut melengkung */
+    text-align: center;
+    background-color: rgba(35, 40, 44, 0.7); /* Background serupa dengan tab lainnya */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 40px; /* Membuat lebar tab lebih besar */
+  }
+  
+  /* Hover untuk tab tambah */
+  .add:hover {
+    background-color: rgba(42, 47, 51, 0.9); /* Hover lebih gelap */
+  }
+  
+  /* Ikon + menggunakan pseudo-elemen */
+  .add::before {
+    content: "";  /* Konten kosong untuk elemen pseudo */
+    display: block;
+    width: 1.5px;  /* Lebar garis vertikal */
+    height: 10px;  /* Tinggi garis vertikal */
+    background-color: #8D9598;  /* Warna garis */
+    position: absolute;
+  }
+  
+  .add::after {
+    content: "";  /* Konten kosong untuk elemen pseudo */
+    display: block;
+    width: 10px;  /* Lebar garis horizontal */
+    height: 1.5px;  /* Tinggi garis horizontal */
+    background-color: #8D9598;  /* Warna garis */
+    position: absolute;
+  }
+  
+  /* Menyusun garis vertikal dan horizontal pada posisi tengah */
+  .add {
+    position: relative; /*  */
+  }
+  
+  .add::before {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  /* Posisikan di tengah tab */
+  }
+  
+  .add::after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  /* Posisikan di tengah tab */
+  }
+  
+  /* Diar bar */
+  .diar-bar {
+    display: flex;  /* Menggunakan Flexbox untuk penataan yang fleksibel */
+    align-items: center;  /* Menyelaraskan item secara vertikal di tengah */
+    justify-content: flex-start;  /* Menyelaraskan item ke kiri, bisa diganti ke center atau flex-end */
+    padding: 0px 30px; /*  */
+    cursor: pointer; /* Untuk mengubah cursor menjadi pointer ketika menyentuh */
+    transition: background 0.2s ease;  /* Efek transisi saat background berubah */
+    width: 100%;  /* Agar diarbar memenuhi lebar kontainer induknya */
+    box-sizing: border-box;  /* Menghitung padding dalam lebar elemen */
+  }
+  
+  /* Gaya ikon di dalam diarbar */
+  .diar-bar i {
+    font-size: 23px;  /* Ukuran ikon */
+    color: #ffffff;  /* Warna ikon */
+    margin-right: 10px;  /* Memberikan jarak antara ikon dan teks */
+  }
+  
+  
+  /* Menambahkan teks di dalam diarbar */
+  .diar-bar .text {
+    font-size: 16px;
+    color: white;
+    margin: 20px;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    display: inline-block;
+  }
+  
+  /* Chat Container */
+  .chat-container {
+    flex: 1;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-bottom: 60px; /* Ruang untuk footer */
+  }
+  
+  .chat-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Chat List */
+  .chat-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .chat-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #2a2f32;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .chat-item:hover {
+    background-color: #2a3942;
+  }
+  
+  .chat-link {
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+    align-items: center;
+    user-select: none; /* Mencegah teks disalin */
+    touch-action: manipulation; /* Mencegah efek tekan lama di mobile */
+  }
+  
+  
+  .chat-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 12px;
+    user-select: none; /* Mencegah gambar bisa disalin */
+  }
+  
+  .chat-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    user-select: none; /* Mencegah teks di dalamnya disalin */
+  }
+  
+  .chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+  
+  .chat-header .name {
+    font-size: 16px;
+    color: #ffffff;
+  }
+  
+  .chat-time {
+    font-size: 12px;
+    color: #8696a0;
+  }
+  
+  .message {
+    font-size: 14px;
+    color: #8696a0;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    user-select: none; /* Mencegah ikon dan teks di dalamnya bisa disalin */
+  }
+  
+  .message i {
+    margin-right: 5px;
+  }
+  
+  
+  
+  /* Footer Container */
+  .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #0B1014;
+      display: flex;
+      border-top: 1px solid #10181E;
+      justify-content: space-evenly;
+      align-items: center;
+      padding: 13px 0;
+      box-sizing: border-box;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Ikon dengan background panjang & melengkung */
+  .fottab .iconS {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 55px;
+      height: 25px;
+      border-radius: 20px;
+      background-color: #0B1014;
+      transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  /* Efek hover pada ikon */
+  .fottab:hover .iconS {
+      background-color: #103629;
+      transform: scale(1.1);
+  }
+  
+  /* Tab yang dipilih */
+  input[type="radio"]:checked + label .iconS {
+      background-color: #103629;
+      transform: scale(1.15);
+  }
+  
+  /* Warna ikon berubah saat tab dipilih */
+  input[type="radio"]:checked + label i {
+      color: #36B46D;
+  }
+  
+  /* Gaya ikon */
+  .fottab i {
+      font-size: 23px;
+      color: white; /* Warna default ikon menjadi putih */
+      transition: color 0.3s ease-in-out;
+  }
+  
+  /* Teks di bawah ikon */
+  .fottab .text {
+      font-size: 12px; /* Ukuran font lebih kecil agar lebih proporsional */
+      color: white;
+      margin-top: 4px;  /* Mengurangi jarak antara ikon dan teks agar lebih rapat */
+      text-align: center;
+      display: block;
+      font-family: 'Roboto', sans-serif; /* Menggunakan font seperti WhatsApp */
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      text-transform: capitalize;
+  }
+  
+  /* Menyembunyikan input radio */
+  input[type="radio"] {
+      display: none;
+  }
